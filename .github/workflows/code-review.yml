@@ -1,4 +1,4 @@
-name: Code Review Workflow
+name: Code Review 
 
 on:
   pull_request:
@@ -23,10 +23,10 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
 
-      - name: Analyze code with CodeQL
+      - name: Analyze code 
         uses: github/codeql-action/analyze@v1 
 
-      - name: Provide Feedback
+      - name: Feedback
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
