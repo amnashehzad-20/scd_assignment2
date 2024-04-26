@@ -1,0 +1,24 @@
+name: Dependency Updates
+
+on:
+  schedule:
+    - cron: '30 5 * * 6' 
+jobs:
+  dependency-updates:
+    name: Update Dependency
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependabot
+        run: npm install -g dependabot
+
+      - name: Run Dependabot
+        run: dependabot
