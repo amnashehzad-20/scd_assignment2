@@ -36,11 +36,11 @@ jobs:
               repo: context.repo.repo,
               pull_number: context.issue.number
             });
-            const reviewComment = `Thank you for the pull request! Here's the feedback based on the code review: ...`;
+            const comment = `Thank you for the pull request.Here's the feedback:`;
             await github.pulls.createReview({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.issue.number,
-              body: reviewComment,
+              body: = comment,
               event: 'COMMENT'
             });
