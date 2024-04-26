@@ -1,1 +1,36 @@
+name: Generate Documentation
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push events to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger on pull requests targeting the main branch
+
+jobs:
+  generate_documentation:
+    name: Generate Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install JSDoc
+        run: npm install --save-dev jsdoc
+
+      - name: Generate JSDoc
+        run: npx jsdoc ./src/utils.js -d ./docs
+
+      - name: Convert HTML to Markdown
+        run: pandoc ./docs/index.html -o ./src/documentation.md
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add ./src/documentation.md
+          git commit -m "Update documentation"
+          git push
 
