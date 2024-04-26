@@ -5,7 +5,8 @@
   "description": "Scripts for scraping the Heavens Above website.",
   "main": "run.js",
   "scripts": {
-    "start": "node run.js"
+    "start": "node run.js",
+    "generate-release-notes": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
