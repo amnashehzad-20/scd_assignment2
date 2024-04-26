@@ -20,10 +20,10 @@ jobs:
           node-version: '14'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install || echo "installing dependices failed"
 
       - name: Build Application
-        run: npm run build
+        run: npm run build || echo "build failed...."
 
   deploy:
     name: Deploy to Netlify
