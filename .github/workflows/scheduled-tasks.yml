@@ -6,14 +6,13 @@ on:
 
 jobs:
   maintenance:
-    name: Perform Maintenance Tasks
+    name: Perform Maintenance
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Run Maintenance Script
-        run: |
-          echo "Performing maintenance tasks..."
+      - name: Run Maintenance
+        run: echo "Performing maintenance tasks..."
 
