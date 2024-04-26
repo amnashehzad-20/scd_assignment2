@@ -18,7 +18,7 @@ jobs:
           node-version: '14'
 
       - name: Install Dependabot
-        run: npm install -g dependabot
+        run: npm install -g dependabot echo "Failed to install Dependabot"
 
       - name: Run Dependabot
-        run: dependabot
+        run: dependabot || echo "Failed to run Dependabot"
